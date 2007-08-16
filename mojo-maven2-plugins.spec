@@ -161,6 +161,7 @@ Patch12:    mojo-maven2-plugins-jdiff-JDiffMojo.patch
 Patch13:    mojo-maven2-plugins-jdiff-pom_xml.patch
 Patch14:    mojo-maven2-plugins-jspc-pom_xml.patch
 Patch15:    mojo-maven2-plugins-findbugs-FindBugsMojo.patch
+Patch16:    mojo-maven2-plugins-sinjdoc.patch
 
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -664,6 +665,7 @@ cp %{SOURCE0} m2_repo/repository/JPP/maven2/default_poms/JPP.mojo-mojo.pom
 %patch12 -b .sav
 %patch13 -b .sav
 %patch14 -b .sav
+%patch16 -p1
 
 %build
 
