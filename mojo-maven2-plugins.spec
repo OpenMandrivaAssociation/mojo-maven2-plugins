@@ -62,7 +62,7 @@
 
 Name:           mojo-maven2-plugins
 Version:        1.0
-Release:        %mkrel 9.0.1
+Release:        %mkrel 9.0.2
 Epoch:          0
 Summary:        Maven2 plugin set from mojo.codehaus.org
 License:        APL, MIT 
@@ -167,8 +167,6 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %if %{gcj_support}
 BuildRequires:          java-gcj-compat-devel
-Requires(post):         java-gcj-compat
-Requires(postun):       java-gcj-compat
 %endif
 %if ! %{gcj_support}
 BuildArch:      noarch
