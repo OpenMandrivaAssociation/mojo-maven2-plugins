@@ -62,7 +62,7 @@
 
 Name:           mojo-maven2-plugins
 Version:        1.0
-Release:        %mkrel 9.0.2
+Release:        %mkrel 9.0.3
 Epoch:          0
 Summary:        Maven2 plugin set from mojo.codehaus.org
 License:        APL, MIT 
@@ -172,7 +172,7 @@ BuildRequires:          java-gcj-compat-devel
 BuildArch:      noarch
 %endif
 
-BuildRequires:  jpackage-utils >= 0:1.7.2
+BuildRequires:  java-rpmbuild >= 0:1.7.2
 BuildRequires:    maven2 >= 2.0.4-8jpp
 BuildRequires:    maven2-plugin-antrun
 BuildRequires:    maven2-plugin-compiler
