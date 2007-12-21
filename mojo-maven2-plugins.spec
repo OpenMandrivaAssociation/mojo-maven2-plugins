@@ -163,6 +163,7 @@ Patch14:    mojo-maven2-plugins-jspc-pom_xml.patch
 Patch15:    mojo-maven2-plugins-findbugs-FindBugsMojo.patch
 Patch16:    mojo-maven2-plugins-sinjdoc.patch
 
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %if %{gcj_support}
 BuildRequires:          java-gcj-compat-devel
