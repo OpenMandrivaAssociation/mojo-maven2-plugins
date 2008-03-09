@@ -62,7 +62,7 @@
 
 Name:           mojo-maven2-plugins
 Version:        1.0
-Release:        %mkrel 9.0.3
+Release:        %mkrel 9.0.4
 Epoch:          0
 Summary:        Maven2 plugin set from mojo.codehaus.org
 License:        APL, MIT 
