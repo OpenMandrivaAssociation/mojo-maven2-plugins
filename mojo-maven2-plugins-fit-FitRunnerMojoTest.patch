@@ -1,0 +1,11 @@
+--- fit-maven-plugin-2.0-beta-2/src/test/java/org/codehaus/mojo/fit/FitRunnerMojoTest.java.sav	2006-09-15 15:39:11.000000000 +0200
++++ fit-maven-plugin-2.0-beta-2/src/test/java/org/codehaus/mojo/fit/FitRunnerMojoTest.java	2006-09-15 15:40:41.000000000 +0200
+@@ -73,7 +73,7 @@
+         throws Exception
+     {
+         String[] files = mojo.listFiles( sourceDirectory, true, "**/*.html", "**/Acc*" );
+-        assertEquals( Arrays.toString( new String[] { "Fit.html" } ), Arrays.toString( files ) );
++        assertEquals( Arrays.asList( new String[] { "Fit.html" } ).toString(), Arrays.asList( files ).toString() );
+     }
+ 
+     public void testPathCanBeDetermined()

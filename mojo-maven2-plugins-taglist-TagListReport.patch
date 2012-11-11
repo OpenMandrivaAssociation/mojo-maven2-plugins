@@ -1,0 +1,46 @@
+--- taglist-maven-plugin-2.0/src/main/java/org/codehaus/mojo/taglist/TagListReport.java.sav	2006-04-02 03:14:00.000000000 +0200
++++ taglist-maven-plugin-2.0/src/main/java/org/codehaus/mojo/taglist/TagListReport.java	2007-03-28 10:25:19.000000000 +0200
+@@ -20,7 +20,8 @@
+ import org.apache.maven.project.MavenProject;
+ import org.apache.maven.reporting.AbstractMavenReport;
+ import org.apache.maven.reporting.MavenReportException;
+-import org.codehaus.doxia.site.renderer.SiteRenderer;
++import org.apache.maven.doxia.siterenderer.Renderer;
++import org.codehaus.doxia.sink.Sink;
+ import org.codehaus.plexus.util.PathTool;
+ import org.codehaus.plexus.util.StringUtils;
+ 
+@@ -49,7 +50,7 @@
+     /**
+      * @component
+      */
+-    private SiteRenderer siteRenderer;
++    private Renderer siteRenderer;
+ 
+     /**
+      * Specifies the location of the source files to be used for Checkstyle
+@@ -131,7 +132,7 @@
+         Collection tagReports = fileAnalyser.execute();
+ 
+         // Renders the report
+-        ReportGenerator generator = new ReportGenerator( tagReports, getBundle( locale ), getSink() );
++        ReportGenerator generator = new ReportGenerator( tagReports, getBundle( locale ), (Sink)getSink() );
+         if ( linkXRef )
+         {
+             String relativePath = PathTool.getRelativePath( outputDirectory, xrefLocation.getAbsolutePath() );
+@@ -204,7 +205,7 @@
+      *
+      * @see org.apache.maven.reporting.AbstractMavenReport#getSiteRenderer()
+      */
+-    protected SiteRenderer getSiteRenderer()
++    protected Renderer getSiteRenderer()
+     {
+         return siteRenderer;
+     }
+@@ -271,4 +272,4 @@
+         return ResourceBundle.getBundle( "taglist-report", locale, this.getClass().getClassLoader() );
+     }
+ 
+-}
+\ No newline at end of file
++}

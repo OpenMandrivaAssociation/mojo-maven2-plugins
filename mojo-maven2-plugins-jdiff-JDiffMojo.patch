@@ -1,0 +1,50 @@
+--- jdiff-maven-plugin-0.1/src/main/java/org/apache/maven/plugin/jdiff/JDiffMojo.java.sav	2006-07-18 23:32:16.000000000 +0200
++++ jdiff-maven-plugin-0.1/src/main/java/org/apache/maven/plugin/jdiff/JDiffMojo.java	2007-05-27 14:15:29.000000000 +0200
+@@ -26,7 +26,7 @@
+ import org.apache.maven.reporting.MavenReportException;
+ import org.apache.maven.scm.manager.ScmManager;
+ import org.codehaus.doxia.sink.Sink;
+-import org.codehaus.doxia.site.renderer.SiteRenderer;
++import org.apache.maven.doxia.siterenderer.Renderer;
+ import org.codehaus.plexus.util.FileUtils;
+ import org.codehaus.plexus.util.PathTool;
+ 
+@@ -100,11 +100,11 @@
+     private List pluginArtifacts;
+ 
+     /**
+-     * @parameter expression="${component.org.codehaus.doxia.site.renderer.SiteRenderer}"
++     * @parameter expression="${component.org.apache.maven.doxia.siterenderer.Renderer}"
+      * @required
+      * @readonly
+      */
+-    private SiteRenderer siteRenderer;
++    private Renderer siteRenderer;
+ 
+     /**
+      * @parameter expression="${component.org.apache.maven.scm.manager.ScmManager}"
+@@ -303,7 +303,7 @@
+     
+     private void generateSite()
+     {
+-        Sink sink = getSink();
++        Sink sink = (Sink)getSink();
+         
+         sink.head();
+         sink.title();
+@@ -340,7 +340,7 @@
+         return project;
+     }
+ 
+-    protected SiteRenderer getSiteRenderer()
++    protected Renderer getSiteRenderer()
+     {
+         return siteRenderer;
+     }
+@@ -364,4 +364,4 @@
+     {
+         return "jdiff";
+     }
+-}
+\ No newline at end of file
++}

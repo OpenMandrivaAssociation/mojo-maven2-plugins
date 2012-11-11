@@ -1,0 +1,27 @@
+--- clirr-maven-plugin-2.0/src/main/java/org/codehaus/mojo/clirr/ClirrReport.java.sav	2006-05-31 02:17:49.000000000 +0200
++++ clirr-maven-plugin-2.0/src/main/java/org/codehaus/mojo/clirr/ClirrReport.java	2006-09-14 15:45:04.000000000 +0200
+@@ -179,8 +179,8 @@
+             Map attributes = new HashMap();
+             attributes.put( "outputEncoding", "UTF-8" );
+             Locale locale = Locale.getDefault();
+-            SiteRenderingContext siteContext = siteRenderer.createContextForSkin( getSkinArtifactFile(), attributes,
+-                                                                                  model, getName( locale ), locale );
++//            SiteRenderingContext siteContext = siteRenderer.createContextForSkin( getSkinArtifactFile(), attributes,
++//                                                                                  model, getName( locale ), locale );
+ 
+             RenderingContext context = new RenderingContext( outputDirectory, getOutputName() + ".html" );
+ 
+@@ -191,10 +191,10 @@
+ 
+             Writer writer = new FileWriter( new File( outputDirectory, getOutputName() + ".html" ) );
+ 
+-            siteRenderer.generateDocument( writer, sink, siteContext );
++            siteRenderer.generateDocument( writer, sink, new SiteRenderingContext() );
+ 
+-            siteRenderer.copyResources( siteContext, new File( project.getBasedir(), "src/site/resources" ),
+-                                        outputDirectory );
++//            siteRenderer.copyResources( siteContext, new File( project.getBasedir(), "src/site/resources" ),
++//                                        outputDirectory );
+         }
+         catch ( RendererException e )
+         {

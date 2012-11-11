@@ -1,0 +1,53 @@
+--- javancss-maven-plugin-2.0-beta-1/src/main/java/org/codehaus/mojo/javancss/NcssReportMojo.java.sav	2006-05-30 15:46:50.000000000 +0200
++++ javancss-maven-plugin-2.0-beta-1/src/main/java/org/codehaus/mojo/javancss/NcssReportMojo.java	2007-05-27 14:14:10.000000000 +0200
+@@ -26,7 +26,8 @@
+ import org.apache.maven.project.MavenProject;
+ import org.apache.maven.reporting.AbstractMavenReport;
+ import org.apache.maven.reporting.MavenReportException;
+-import org.codehaus.doxia.site.renderer.SiteRenderer;
++import org.apache.maven.doxia.siterenderer.Renderer;
++import org.codehaus.doxia.sink.Sink;
+ import org.codehaus.plexus.util.DirectoryScanner;
+ import org.dom4j.Document;
+ import org.dom4j.DocumentException;
+@@ -90,11 +91,11 @@
+     private MavenProject project;
+ 
+     /**
+-     * @parameter expression="${component.org.codehaus.doxia.site.renderer.SiteRenderer}"
++     * @parameter expression="${component.org.apache.maven.doxia.siterenderer.Renderer}"
+      * @required
+      * @readonly
+      */
+-    private SiteRenderer siteRenderer;
++    private Renderer siteRenderer;
+ 
+     /**
+      * The projects in the reactor for aggregation report.
+@@ -166,7 +167,7 @@
+         getLog().debug( "Aggregating " + reports.size() + " JavaNCSS reports" );
+ 
+         // parse the freshly generated file and write the report
+-        NcssAggregateReportGenerator reportGenerator = new NcssAggregateReportGenerator( getSink(),
++        NcssAggregateReportGenerator reportGenerator = new NcssAggregateReportGenerator( (Sink)getSink(),
+                                                                                          getBundle( locale ), getLog() );
+         reportGenerator.doReport( locale, reports, lineThreshold );
+     }
+@@ -187,7 +188,7 @@
+             throw new MavenReportException( "Can't process temp ncss xml file." );
+         }
+         // parse the freshly generated file and write the report
+-        NcssReportGenerator reportGenerator = new NcssReportGenerator( getSink(), getBundle( locale ) );
++        NcssReportGenerator reportGenerator = new NcssReportGenerator( (Sink)getSink(), getBundle( locale ) );
+         reportGenerator.doReport( locale, loadDocument(), lineThreshold );
+     }
+ 
+@@ -324,7 +325,7 @@
+     /**
+      * @see org.apache.maven.reporting.AbstractMavenReport#getSiteRenderer()
+      */
+-    protected SiteRenderer getSiteRenderer()
++    protected Renderer getSiteRenderer()
+     {
+         return siteRenderer;
+     }

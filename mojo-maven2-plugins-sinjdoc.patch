@@ -1,0 +1,11 @@
+--- mojo/keytool-maven-plugin-1.0-beta-1/src/main/java/org/codehaus/mojo/keytool/GenkeyMojo.java.orig	2007-08-16 22:30:29.000000000 +0200
++++ mojo/keytool-maven-plugin-1.0-beta-1/src/main/java/org/codehaus/mojo/keytool/GenkeyMojo.java	2007-08-16 22:30:59.000000000 +0200
+@@ -53,7 +53,7 @@
+  * @phase package
+  * @requiresProject
+  * @todo refactor the common code with javadoc plugin
+- * @see <a href="http://java.sun.com/j2se/1.4.2/docs/tooldocs/windows/keytool.html">keystore documentation</a>.
++ *
+  */
+ public class GenkeyMojo
+     extends AbstractKeyToolMojo

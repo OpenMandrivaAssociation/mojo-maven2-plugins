@@ -1,0 +1,11 @@
+--- jdiff-maven-plugin-0.1/pom.xml.sav	2007-03-28 11:29:22.000000000 +0200
++++ jdiff-maven-plugin-0.1/pom.xml	2007-03-28 11:29:37.000000000 +0200
+@@ -9,7 +9,7 @@
+   </parent>
+   <modelVersion>4.0.0</modelVersion>
+   <artifactId>jdiff-maven-plugin</artifactId>
+-  <version>0.1-SNAPSHOT</version>
++  <version>0.1</version>
+   <packaging>maven-plugin</packaging>
+   <name>Maven JDiff Plug-in</name>
+   <dependencies>

@@ -1,0 +1,53 @@
+--- changes-maven-plugin-2.0-beta-1/src/main/java/org/apache/maven/changes/ChangesMojo.java.sav	2005-10-04 08:22:25.000000000 +0200
++++ changes-maven-plugin-2.0-beta-1/src/main/java/org/apache/maven/changes/ChangesMojo.java	2007-05-27 14:10:17.000000000 +0200
+@@ -23,7 +23,8 @@
+ import org.apache.maven.project.MavenProject;
+ import org.apache.maven.reporting.AbstractMavenReport;
+ import org.apache.maven.reporting.MavenReportException;
+-import org.codehaus.doxia.site.renderer.SiteRenderer;
++import org.apache.maven.doxia.siterenderer.Renderer;
++import org.codehaus.doxia.sink.Sink;
+ 
+ /**
+  * @goal changes-report
+@@ -43,11 +44,11 @@
+     private String outputDirectory;
+ 
+     /**
+-     * @parameter expression="${component.org.codehaus.doxia.site.renderer.SiteRenderer}"
++     * @parameter expression="${component.org.apache.maven.doxia.siterenderer.Renderer}"
+      * @required
+      * @readonly
+      */
+-    private SiteRenderer siteRenderer;
++    private Renderer siteRenderer;
+ 
+     /**
+      * @parameter expression="${project}"
+@@ -91,7 +92,7 @@
+ 
+             ChangesReportGenerator report = new ChangesReportGenerator();
+             
+-            report.doGenerateEmptyReport( getBundle( locale ), getSink(), getBundle( locale )
++            report.doGenerateEmptyReport( getBundle( locale ), (Sink)getSink(), getBundle( locale )
+                 .getString( "report.changes.error" ) );
+         }
+         else
+@@ -107,7 +108,7 @@
+ 
+             report.setUrl( url );
+ 
+-            report.doGenerateReport( getBundle( locale ), getSink() );
++            report.doGenerateReport( getBundle( locale ), (Sink)getSink() );
+         }
+ 
+     }
+@@ -122,7 +123,7 @@
+         return getBundle( locale ).getString( "report.changes.description" );
+     }
+ 
+-    protected SiteRenderer getSiteRenderer()
++    protected Renderer getSiteRenderer()
+     {
+         return siteRenderer;
+     }

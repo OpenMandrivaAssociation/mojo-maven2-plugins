@@ -1,0 +1,19 @@
+--- jspc-maven-plugin-1.4.6/pom.xml.sav	2006-10-13 21:38:14.000000000 +0200
++++ jspc-maven-plugin-1.4.6/pom.xml	2007-03-28 20:01:17.000000000 +0200
+@@ -71,6 +71,16 @@
+             <artifactId>jasper-runtime</artifactId>
+             <version>5.5.15</version>
+         </dependency>
++        <dependency>
++            <groupId>ant</groupId>
++            <artifactId>ant</artifactId>
++            <version>1.6.5</version>
++        </dependency>
++        <dependency>
++            <groupId>javax.servlet</groupId>
++            <artifactId>servlet-api</artifactId>
++            <version>2.4</version>
++        </dependency>
+     </dependencies>
+ 
+ 

@@ -1,0 +1,29 @@
+--- cobertura-maven-plugin-2.1/src/main/java/org/codehaus/mojo/cobertura/CoberturaReportMojo.java.sav	2007-03-28 19:39:52.000000000 +0200
++++ cobertura-maven-plugin-2.1/src/main/java/org/codehaus/mojo/cobertura/CoberturaReportMojo.java	2007-03-28 19:41:05.000000000 +0200
+@@ -28,7 +28,7 @@
+ import org.apache.maven.reporting.AbstractMavenReport;
+ import org.apache.maven.reporting.MavenReportException;
+ import org.codehaus.doxia.sink.Sink;
+-import org.codehaus.doxia.site.renderer.SiteRenderer;
++import org.apache.maven.doxia.siterenderer.Renderer;
+ import org.codehaus.mojo.cobertura.tasks.ReportTask;
+ import org.codehaus.plexus.util.FileUtils;
+ 
+@@ -106,7 +106,7 @@
+      *
+      * @component
+      */
+-    private SiteRenderer siteRenderer;
++    private Renderer siteRenderer;
+ 
+     /**
+      * <i>Maven Internal</i>: Project to interact with.
+@@ -152,7 +152,7 @@
+     /**
+      * @see org.apache.maven.reporting.AbstractMavenReport#getSiteRenderer()
+      */
+-    protected SiteRenderer getSiteRenderer()
++    protected Renderer getSiteRenderer()
+     {
+         return siteRenderer;
+     }

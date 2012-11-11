@@ -1,0 +1,42 @@
+--- jxr-maven-plugin-2.0-beta-1/src/main/java/org/apache/maven/plugin/jxr/JxrReport.java.sav	2005-10-01 01:58:59.000000000 +0200
++++ jxr-maven-plugin-2.0-beta-1/src/main/java/org/apache/maven/plugin/jxr/JxrReport.java	2007-05-27 14:16:37.000000000 +0200
+@@ -22,7 +22,7 @@
+ import org.apache.maven.reporting.AbstractMavenReport;
+ import org.apache.maven.reporting.MavenReportException;
+ import org.codehaus.doxia.sink.Sink;
+-import org.codehaus.doxia.site.renderer.SiteRenderer;
++import org.apache.maven.doxia.siterenderer.Renderer;
+ import org.codehaus.plexus.util.FileUtils;
+ 
+ import java.io.File;
+@@ -53,10 +53,10 @@
+     private MavenProject project;
+ 
+     /**
+-     * @parameter expression="${component.org.codehaus.doxia.site.renderer.SiteRenderer}"
++     * @parameter expression="${component.org.apache.maven.doxia.siterenderer.Renderer}"
+      * @required @readonly
+      */
+-    private SiteRenderer siteRenderer;
++    private Renderer siteRenderer;
+ 
+     /**
+      * Source directories of the project.
+@@ -157,7 +157,7 @@
+         init();
+ 
+         // and start the report 
+-        Sink sink = getSink();
++        Sink sink = (Sink)getSink();
+ 
+         startSink( sink, locale );
+ 
+@@ -422,7 +422,7 @@
+      *
+      * @see org.apache.maven.reporting.AbstractMavenReport#getSiteRenderer()
+      */
+-    protected SiteRenderer getSiteRenderer()
++    protected Renderer getSiteRenderer()
+     {
+         return siteRenderer;
+     }

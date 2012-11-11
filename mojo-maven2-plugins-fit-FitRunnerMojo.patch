@@ -1,0 +1,20 @@
+--- fit-maven-plugin-2.0-beta-2/src/main/java/org/codehaus/mojo/fit/FitRunnerMojo.java.sav	2006-09-15 15:25:22.000000000 +0200
++++ fit-maven-plugin-2.0-beta-2/src/main/java/org/codehaus/mojo/fit/FitRunnerMojo.java	2006-09-15 15:33:41.000000000 +0200
+@@ -108,7 +108,7 @@
+             Boolean.valueOf( caseSensitive ),
+             sourceIncludes,
+             sourceExcludes,
+-            Arrays.toString( parseTags ),
++            Arrays.asList( parseTags ).toString( ),
+             outputDirectory,
+             Boolean.valueOf( ignoreFailures )} );
+         getLog().debug( "Executing FitRunner with parameters " + executionParameters );
+@@ -156,7 +156,7 @@
+         }
+         scanner.scan();
+         String[] files = scanner.getIncludedFiles();
+-        getLog().debug( "Files listed " + Arrays.toString( files ) );
++        getLog().debug( "Files listed " + Arrays.asList( files ).toString( ) );
+         return files;
+     }
+ 

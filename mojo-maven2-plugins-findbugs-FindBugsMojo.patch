@@ -1,0 +1,38 @@
+--- findbugs-maven-plugin-1.0-beta-1/src/main/java/org/codehaus/mojo/findbugs/FindBugsMojo.java.sav	2006-08-28 20:19:09.000000000 +0200
++++ findbugs-maven-plugin-1.0-beta-1/src/main/java/org/codehaus/mojo/findbugs/FindBugsMojo.java	2006-09-14 18:02:09.000000000 +0200
+@@ -42,7 +42,7 @@
+ import org.apache.maven.reporting.AbstractMavenReport;
+ import org.apache.maven.reporting.MavenReportException;
+ import org.codehaus.doxia.sink.Sink;
+-import org.codehaus.doxia.site.renderer.SiteRenderer;
++import org.apache.maven.doxia.siterenderer.Renderer;
+ import org.codehaus.plexus.util.FileUtils;
+ 
+ import edu.umd.cs.findbugs.DetectorFactory;
+@@ -136,7 +136,7 @@
+      * @required
+      * @readonly
+      */
+-    private transient SiteRenderer siteRenderer;
++    private transient Renderer siteRenderer;
+ 
+     /**
+      * Directory containing the class files for FindBugs to analyze.
+@@ -329,7 +329,7 @@
+      * @return the doxia Renderer
+      * @see org.apache.maven.reporting.AbstractMavenReport#getSiteRenderer()
+      */
+-    protected SiteRenderer getSiteRenderer()
++    protected Renderer getSiteRenderer()
+     {
+         return this.siteRenderer;
+     }
+@@ -452,7 +452,7 @@
+         throws DependencyResolutionRequiredException, IOException, FilterException, ArtifactNotFoundException,
+         ArtifactResolutionException
+     {
+-        final Sink sink = this.getSink();
++        final Sink sink = (Sink)this.getSink();
+         final ResourceBundle bundle = FindBugsMojo.getBundle( pLocale );
+         final Log log = this.getLog();
+         final EffortParameter effortParameter = this.getEffortParameter();
