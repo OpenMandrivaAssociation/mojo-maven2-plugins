@@ -67,7 +67,7 @@ Epoch:          0
 Summary:        Maven2 plugin set from mojo.codehaus.org
 License:        APL, MIT 
 Group:          Development/Java
-URL:            http://mojo.codehaus.org
+URL:            https://mojo.codehaus.org
 Source0:    mojo12-pom.xml
 Source1:    %{name}-mapdeps.xsl
 Source2:    %{name}-jpp-depmap.xml
